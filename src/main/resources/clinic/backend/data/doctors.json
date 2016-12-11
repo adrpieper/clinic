@@ -1,4 +1,4 @@
 [
-  {"id":1,"name":"Adrian"},
-  {"id":2,"name":"Joanna"}
+  {"id":1,"name":"Adrian","surname":"Pieper","title":"lek. med. pracy"},
+  {"id":2,"name":"Joanna","surname":"Plaga","title": "lek. med. rodzinnej"}
 ]
