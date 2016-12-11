@@ -11,11 +11,6 @@ public class DoctorDAOArrayListImpl implements DoctorDAO{
 
     private List<DoctorDTO> doctors = new ArrayList<>();
 
-    public DoctorDAOArrayListImpl() {
-        doctors.add(new DoctorDTO(1L, "Adrian"));
-        doctors.add(new DoctorDTO(2L, "Joanna"));
-    }
-
     @Override
     public List<DoctorDTO> getAll() {
         return doctors;

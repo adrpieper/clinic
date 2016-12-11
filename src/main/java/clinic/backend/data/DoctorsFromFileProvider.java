@@ -4,10 +4,12 @@ import clinic.backend.dao.DoctorDAO;
 import clinic.backend.dto.DoctorDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
 
+@Component
 public class DoctorsFromFileProvider {
 
     private final DoctorDAO doctorDAO;
