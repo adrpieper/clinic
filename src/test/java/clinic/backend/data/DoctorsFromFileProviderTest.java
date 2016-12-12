@@ -27,7 +27,7 @@ public class DoctorsFromFileProviderTest {
     @Captor
     private ArgumentCaptor<DoctorDTO> doctorDTOArgumentCaptor;
 
-    private List<DoctorDTO> givenDoctors = Arrays.asList(new DoctorDTO(1L,"Test User1"),new DoctorDTO(2L,"Test User2"));
+    private List<DoctorDTO> givenDoctors = Arrays.asList(new DoctorDTO(1L,"Test User1", "Test Surname1", "Test Title1"),new DoctorDTO(2L,"Test User2", "Test Surname2", "Test Title2"));
 
     @Test
     public void provide() throws Exception {

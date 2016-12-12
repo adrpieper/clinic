@@ -4,13 +4,17 @@ public class DoctorDTO {
 
     private Long id;
     private String name;
+    private String surname;
+    private String title;
 
     public DoctorDTO() {
     }
 
-    public DoctorDTO(Long id, String name) {
+    public DoctorDTO(Long id, String name, String surname, String title) {
         this.id = id;
         this.name = name;
+        this.surname = surname;
+        this.title = title;
     }
 
     public void setId(Long id) {
@@ -27,5 +31,16 @@ public class DoctorDTO {
 
     public String getName() {
         return name;
+    }
+
+    public void setSurname(String surname){ this.surname = surname; }
+    public String getSurname() { return surname; }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }
