@@ -21,8 +21,13 @@ public class DoctorDAOHashMapImplTest {
     @Test
     public void getAllAndAddTest() throws Exception {
         assert doctorDAOHashMap.getAll().size()==0;
+        doctorDTO.setId(1L);
         doctorDAOHashMap.add(doctorDTO);
-        assert doctorDAOHashMap.getAll().size()==1;
+        doctorDTO1.setId(2L);
+        doctorDAOHashMap.add(doctorDTO1);
+        assert doctorDAOHashMap.getAll().size()==2;
+        assert doctorDAOHashMap.getAll().contains(doctorDTO);
+        assert doctorDAOHashMap.getAll().contains(doctorDTO1);
 
     }
 
@@ -30,12 +35,13 @@ public class DoctorDAOHashMapImplTest {
     public void getById() throws Exception {
 
         doctorDTO.setId(1L);
-        doctorDTO.setName("S");
-        doctorDTO.setSurname("A");
+        doctorDTO.setName("Simon");
+        doctorDTO.setSurname("Audi");
         doctorDTO.setTitle("doc");
         doctorDAOHashMap.add(doctorDTO);
         assert doctorDAOHashMap.getById(1).equals(doctorDTO);
-        assert doctorDAOHashMap.getById(1).getSurname().equals("y")==false;
+        assert doctorDAOHashMap.getById(2)==null;
+
 
     }
 
