@@ -16,16 +16,13 @@ public class DoctorDAOHashMapImplTest {
     DoctorDAOHashMapImpl doctorDAOHashMap = new DoctorDAOHashMapImpl();
     DoctorDTO doctorDTO = new DoctorDTO();
     DoctorDTO doctorDTO1 = new DoctorDTO();
-    @Test
-    public void getAll() throws Exception {
 
-    }
 
     @Test
-    public void add() throws Exception {
-        int a = doctorDAOHashMap.getAll().size();
+    public void getAllAndAddTest() throws Exception {
+        assert doctorDAOHashMap.getAll().size()==0;
         doctorDAOHashMap.add(doctorDTO);
-        assert doctorDAOHashMap.getAll().size()==a+1;
+        assert doctorDAOHashMap.getAll().size()==1;
 
     }
 
@@ -37,7 +34,7 @@ public class DoctorDAOHashMapImplTest {
         doctorDTO.setSurname("A");
         doctorDTO.setTitle("doc");
         doctorDAOHashMap.add(doctorDTO);
-        assert doctorDAOHashMap.getById(1).getName().equals("S");
+        assert doctorDAOHashMap.getById(1).equals(doctorDTO);
         assert doctorDAOHashMap.getById(1).getSurname().equals("y")==false;
 
     }
