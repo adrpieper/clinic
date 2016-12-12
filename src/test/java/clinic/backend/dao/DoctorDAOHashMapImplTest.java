@@ -4,6 +4,7 @@ import clinic.backend.dto.DoctorDTO;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.*;
@@ -25,9 +26,10 @@ public class DoctorDAOHashMapImplTest {
         doctorDAOHashMap.add(doctorDTO);
         doctorDTO1.setId(2L);
         doctorDAOHashMap.add(doctorDTO1);
-        assert doctorDAOHashMap.getAll().size()==2;
-        assert doctorDAOHashMap.getAll().contains(doctorDTO);
-        assert doctorDAOHashMap.getAll().contains(doctorDTO1);
+        List doctors = doctorDAOHashMap.getAll();
+        assert doctors.size()==2;
+        assert doctors.contains(doctorDTO);
+        assert doctors.contains(doctorDTO1);
 
     }
 
