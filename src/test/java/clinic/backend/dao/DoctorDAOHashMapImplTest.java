@@ -47,6 +47,7 @@ public class DoctorDAOHashMapImplTest {
         doctorDTO.setTitle("doc");
         doctorDAOHashMap.add(doctorDTO);
         assert doctorDAOHashMap.getById(1).equals(doctorDTO);
+        Assertions.assertThat(doctorDAOHashMap.getById(1)).isEqualTo(doctorDTO);
         Assertions.assertThat(doctorDAOHashMap.getById(2)).isNull();
 
 
