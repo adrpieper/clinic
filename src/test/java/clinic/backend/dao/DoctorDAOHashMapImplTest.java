@@ -20,7 +20,7 @@ public class DoctorDAOHashMapImplTest {
 
 
     @Test
-    public void getAllAndAddTest() throws Exception {
+    public void getAllAndAddTestAndDelete() throws Exception {
         assert doctorDAOHashMap.getAll().size()==0;
         doctorDTO.setId(1L);
         doctorDAOHashMap.add(doctorDTO);
@@ -30,6 +30,11 @@ public class DoctorDAOHashMapImplTest {
         assert doctors.size()==2;
         assert doctors.contains(doctorDTO);
         assert doctors.contains(doctorDTO1);
+        doctorDAOHashMap.deleteDoctorById(1L);
+        doctors = doctorDAOHashMap.getAll();
+        assert doctors.size()==1;
+        assert doctors.contains(doctorDTO1);
+        assert doctors.contains(doctorDTO)==false;
 
     }
 
