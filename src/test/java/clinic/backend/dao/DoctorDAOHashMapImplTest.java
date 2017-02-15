@@ -1,6 +1,8 @@
 package clinic.backend.dao;
 
 import clinic.backend.dto.DoctorDTO;
+import org.assertj.core.api.Assertions;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -21,20 +23,18 @@ public class DoctorDAOHashMapImplTest {
 
     @Test
     public void getAllAndAddTestAndDelete() throws Exception {
-        assert doctorDAOHashMap.getAll().size()==0;
+
+        Assertions.assertThat(doctorDAOHashMap.getAll()).isEmpty();
         doctorDTO.setId(1L);
         doctorDAOHashMap.add(doctorDTO);
         doctorDTO1.setId(2L);
         doctorDAOHashMap.add(doctorDTO1);
         List doctors = doctorDAOHashMap.getAll();
-        assert doctors.size()==2;
-        assert doctors.contains(doctorDTO);
-        assert doctors.contains(doctorDTO1);
+        Assertions.assertThat(doctors).containsExactly(doctorDTO, doctorDTO1);
         doctorDAOHashMap.deleteDoctorById(1L);
         doctors = doctorDAOHashMap.getAll();
-        assert doctors.size()==1;
-        assert doctors.contains(doctorDTO1);
-        assert doctors.contains(doctorDTO)==false;
+
+        Assertions.assertThat(doctors).containsExactly(doctorDTO1);
 
     }
 
@@ -47,7 +47,7 @@ public class DoctorDAOHashMapImplTest {
         doctorDTO.setTitle("doc");
         doctorDAOHashMap.add(doctorDTO);
         assert doctorDAOHashMap.getById(1).equals(doctorDTO);
-        assert doctorDAOHashMap.getById(2)==null;
+        Assertions.assertThat(doctorDAOHashMap.getById(2)).isNull();
 
 
     }

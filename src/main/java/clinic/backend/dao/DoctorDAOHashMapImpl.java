@@ -28,6 +28,7 @@ public class DoctorDAOHashMapImpl implements DoctorDAO{
         return doctors.get(id);
     }
 
+    @Override
     public void deleteDoctorById(long id) { doctors.remove(id); }
 
 }

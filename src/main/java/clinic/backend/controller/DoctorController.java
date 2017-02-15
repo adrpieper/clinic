@@ -30,4 +30,9 @@ public class DoctorController {
     public DoctorDTO getOneDoctor(@PathVariable long id) {
         return doctorDAO.getById(id);
     }
+
+    @RequestMapping(value = "/doctors/{id}", method = RequestMethod.DELETE)
+    public void deleteById(@PathVariable long id) {
+        doctorDAO.deleteDoctorById(id);
+    }
 }
