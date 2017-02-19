@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DoctorDAO {
     List<DoctorDTO> getAll();
-    void add(DoctorDTO doctor);
+    void save(DoctorDTO doctor);
     DoctorDTO getById(long id);
     void deleteDoctorById(long id);
 

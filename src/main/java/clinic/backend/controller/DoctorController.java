@@ -2,12 +2,10 @@ package clinic.backend.controller;
 
 
 import clinic.backend.dao.DoctorDAO;
+import clinic.backend.dto.DoctorCreateDTO;
 import clinic.backend.dto.DoctorDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,5 +32,24 @@ public class DoctorController {
     @RequestMapping(value = "/doctors/{id}", method = RequestMethod.DELETE)
     public void deleteById(@PathVariable long id) {
         doctorDAO.deleteDoctorById(id);
+    }
+
+    @RequestMapping(value = "/doctors", method = RequestMethod.POST)
+    public void createNewDoctor(@RequestBody DoctorCreateDTO body) {
+        DoctorDTO doctorDTO = new DoctorDTO();
+        doctorDTO.setName(body.getName());
+        doctorDTO.setSurname(body.getSurname());
+        doctorDTO.setTitle(body.getTitle());
+        doctorDAO.save(doctorDTO);
+    }
+
+    @RequestMapping(value = "/doctors/{id}", method = RequestMethod.PUT)
+    public void createNewDoctor(@PathVariable long id, @RequestBody DoctorCreateDTO body) {
+        DoctorDTO doctorDTO = new DoctorDTO();
+        doctorDTO.setId(id);
+        doctorDTO.setName(body.getName());
+        doctorDTO.setSurname(body.getSurname());
+        doctorDTO.setTitle(body.getTitle());
+        doctorDAO.save(doctorDTO);
     }
 }

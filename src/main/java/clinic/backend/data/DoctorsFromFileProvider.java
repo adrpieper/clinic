@@ -25,7 +25,7 @@ public class DoctorsFromFileProvider {
         try {
             DoctorDTO[] doctors = mapper.readValue(inputStream, DoctorDTO[].class);
             for (DoctorDTO doctor : doctors) {
-                doctorDAO.add(doctor);
+                doctorDAO.save(doctor);
             }
 
         } catch (IOException e) {

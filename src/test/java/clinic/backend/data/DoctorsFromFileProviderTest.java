@@ -32,7 +32,7 @@ public class DoctorsFromFileProviderTest {
     @Test
     public void provide() throws Exception {
         underTest.provide();
-        verify(doctorDAO, times(2)).add(doctorDTOArgumentCaptor.capture());
+        verify(doctorDAO, times(2)).save(doctorDTOArgumentCaptor.capture());
         List<DoctorDTO> loadedDoctos = doctorDTOArgumentCaptor.getAllValues();
         assertThat(loadedDoctos).usingFieldByFieldElementComparator().containsExactlyElementsOf(givenDoctors);
     }

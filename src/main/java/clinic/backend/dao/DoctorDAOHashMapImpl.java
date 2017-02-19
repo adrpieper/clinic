@@ -12,6 +12,7 @@ import java.util.Map;
 public class DoctorDAOHashMapImpl implements DoctorDAO{
 
     private Map<Long,DoctorDTO> doctors = new HashMap<>();
+    private long id = 1L;
 
     @Override
     public List<DoctorDTO> getAll() {
@@ -19,8 +20,16 @@ public class DoctorDAOHashMapImpl implements DoctorDAO{
     }
 
     @Override
-    public void add(DoctorDTO doctor) {
-        doctors.put(doctor.getId(), doctor);
+    public void save(DoctorDTO doctor) {
+        if (doctor.getId() == null){
+            doctor.setId(id);
+            doctors.put(doctor.getId(), doctor);
+            id++;
+        }else {
+            if (doctors.containsKey(doctor.getId())) {
+                doctors.put(doctor.getId(), doctor);
+            }
+        }
     }
 
     @Override
